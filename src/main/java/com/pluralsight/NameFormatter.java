@@ -19,6 +19,8 @@ public class NameFormatter {
         if (!prefix.isEmpty()) {
             result += prefix + " ";
         }
+        result += firstName;
+
         //add if statement for middle
         if (!middleName.isEmpty()) {
             result += " " + middleName;
