@@ -32,11 +32,28 @@ public class NameFormatter {
     }
 
     //put together full name to parse
+    public static String format (String fullName) {
+        String suffix = "";
 
+        //add if for full
+        if (fullName.contains(",")) {
+            String[] mainParts = fullName.split(",");
+            fullName = mainParts[0].trim();
+            suffix = mainParts[1].trim();
+        }
+        //add part names
+        String[] parts = fullName.split(" ");
 
-
-    public static String firstName;
-    public static String lastName;
-    public static String middleName;
-    public`
+        //add parts name by index
+        if (parts.length == 2) {
+            return format(parts[0], parts[1]);
+        }
+        if (parts.length == 3) {
+            return format("", parts[0], parts[1], parts[2], suffix );
+        }
+        if (parts.length == 4) {
+            return format(parts[0], parts[1], parts[2], parts[3], suffix );
+        }
+        return fullName;
+    }
 }
